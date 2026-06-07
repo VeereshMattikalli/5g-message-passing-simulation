@@ -1,3 +1,8 @@
+# 5g message passing simulation
+
+This repository contains UERANSIM-based code for 5G message passing simulation.
+
+See `config/` for example configs and `src/` for source code.
 <p align="center">
   <a href="https://github.com/aligungr/UERANSIM"><img src="/.github/logo.png" width="75" title="UERANSIM"></a>
 </p>

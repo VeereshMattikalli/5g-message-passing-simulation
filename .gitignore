@@ -1,3 +1,26 @@
+# Build artifacts
+/build/
+/cmake-build-release/
+/CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Object and binary files
+*.o
+*.a
+*.so
+*.exe
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+*~
+*.log
+
+# Generated ASN/other
+/src/asn/asn1c/
 # Project specific (OTHERS)
 .idea
 cmake-build-*
