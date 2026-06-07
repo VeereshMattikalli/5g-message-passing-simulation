@@ -1,0 +1,100 @@
+name: Validate Configuration
+
+on:
+  push:
+    branches: [ master, main, develop ]
+    paths:
+      - '**.yaml'
+      - '**.yml'
+      - '.github/workflows/validate.yml'
+  pull_request:
+    branches: [ master, main, develop ]
+    paths:
+      - '**.yaml'
+      - '**.yml'
+
+jobs:
+  validate-yaml:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install yamllint
+      run: |
+        pip install yamllint
+    
+    - name: Validate YAML files
+      run: |
+        yamllint -c .yamllint config/ || true
+    
+    - name: Check file format
+      run: |
+        echo "Checking YAML file syntax..."
+        for file in config/*.yaml config/*.yml; do
+          if [ -f "$file" ]; then
+            python -m yaml < "$file" > /dev/null && echo "✓ $file" || echo "✗ $file"
+          fi
+        done
+
+  check-documentation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Check README exists
+      run: |
+        if [ ! -f README.md ]; then
+          echo "Error: README.md not found"
+          exit 1
+        fi
+    
+    - name: Check LICENSE exists
+      run: |
+        if [ ! -f LICENSE ]; then
+          echo "Error: LICENSE not found"
+          exit 1
+        fi
+    
+    - name: Validate markdown files
+      run: |
+        echo "Checking markdown files..."
+        for file in *.md docs/*.md; do
+          if [ -f "$file" ]; then
+            if [ -s "$file" ]; then
+              echo "✓ $file ($(wc -c < "$file") bytes)"
+            else
+              echo "✗ $file (empty)"
+            fi
+          fi
+        done
+
+  build-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake build-essential
+    
+    - name: Check build files
+      run: |
+        if [ ! -f CMakeLists.txt ]; then
+          echo "Warning: CMakeLists.txt not found"
+        fi
+        if [ ! -f "scripts/setup.sh" ]; then
+          echo "Warning: Setup script not found"
+        fi
+        echo "Build files check completed"

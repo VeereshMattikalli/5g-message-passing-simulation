@@ -1,5 +1,11 @@
 # 5G Standalone Network Simulation using OpenAirInterface, Open5GS, UERANSIM and Netcat Chat
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Platform](https://img.shields.io/badge/platform-Ubuntu%2022.04-orange)
+![5G Standard](https://img.shields.io/badge/standard-3GPP%20R16-green)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+[![GitHub Stars](https://img.shields.io/github/stars/VeereshMattikalli/5g-message-passing-simulation?style=flat)](https://github.com/VeereshMattikalli/5g-message-passing-simulation)
+
 ## Project Overview
 
 This project demonstrates the deployment of a complete **5G Standalone (SA) Network** using:
@@ -10,6 +16,29 @@ This project demonstrates the deployment of a complete **5G Standalone (SA) Netw
 * RF Simulator (RFSim)
 
 The setup enables communication between two simulated User Equipments (UE1 and UE2) connected to the same 5G Core Network. Connectivity is verified through ping tests and real-time message exchange using Netcat (nc).
+
+---
+
+## Quick Start
+
+```bash
+# Automated setup
+sudo bash scripts/setup.sh
+
+# Run the simulation
+sudo bash scripts/run_simulation.sh
+```
+
+See [Setup Guide](README.md#prerequisites) below for detailed instructions.
+
+---
+
+## Resources
+
+- 📖 **[Architecture Guide](docs/ARCHITECTURE.md)** — System design and topology
+- 🤝 **[Contributing](CONTRIBUTING.md)** — How to contribute to this project
+- 📝 **[Changelog](CHANGELOG.md)** — Version history and updates
+- 📜 **[License](LICENSE)** — MIT License
 
 ---
 
