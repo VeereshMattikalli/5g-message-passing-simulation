@@ -159,26 +159,27 @@ ogstun
 
 ---
 
-## Step 2: Start OAI gNB
+## Step 2: Start gNB
 
-Navigate to OAI build directory:
-
-```bash
-cd ~/openairinterface5g/cmake_targets/ran_build/build
-```
-
-Launch gNB:
+Navigate to the UERANSIM build directory:
 
 ```bash
-sudo ./nr-softmodem --rfsim \
--O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb-cu.sa.f1.conf
+cd ~/build/UERANSIM/build
 ```
 
-Expected:
+Launch the gNB:
+
+```bash
+sudo ./nr-gnb -c ../config/open5gs-gnb.yaml
+```
+
+Expected output:
 
 ```text
-gNB connected to AMF
-NG Setup Successful
+[info] SCTP connection established (127.0.0.1:38412)
+[ngap] NG Setup Request received
+[ngap] NG Setup Response received
+[ngap] NG Setup procedure is successful
 ```
 
 ---
