@@ -157,6 +157,16 @@ ogstun
 10.45.0.1/16
 ```
 
+### Verify AMF log output before starting gNB
+
+Tail the AMF log and confirm the AMF is running normally before launching the gNB:
+
+```bash
+sudo tail -f /var/log/open5gs/amf.log
+```
+
+Leave this running in a separate terminal so you can monitor registration messages as the gNB and UEs start.
+
 ---
 
 ## Step 2: Start gNB
