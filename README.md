@@ -48,6 +48,40 @@ To simulate a 5G Standalone (SA) network using OpenAirInterface integrated with 
 
 ---
 
+## Project Structure
+
+```
+5g-message-passing-simulation/
+├── scripts/                          # Automation scripts
+│   ├── setup.sh                      # Environment setup script
+│   └── run_simulation.sh              # Runtime simulation manager
+├── docs/                             # Architecture & design documentation
+│   └── ARCHITECTURE.md               # System topology and design details
+├── config/                           # Configuration files
+│   ├── open5gs-gnb.yaml              # OAI gNB configuration
+│   ├── open5gs-ue.yaml               # UE1 configuration
+│   └── open5gs-ue2.yaml              # UE2 configuration
+├── src/                              # Source code
+│   ├── gnb/                          # gNB implementation
+│   ├── ue/                           # UE implementation
+│   ├── lib/                          # Protocol libraries
+│   └── utils/                        # Utility functions
+├── .github/
+│   ├── ISSUE_TEMPLATE/               # Bug & feature request templates
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   └── workflows/                    # CI/CD automation
+│       └── validate.yml              # YAML validation workflow
+├── build/                            # Build outputs (generated)
+├── README.md                         # Project documentation
+├── LICENSE                           # MIT License
+├── CHANGELOG.md                      # Version history
+├── CONTRIBUTING.md                   # Contribution guidelines
+└── .yamllint                         # YAML linting configuration
+```
+
+---
+
 ## System Architecture
 
 ```text
